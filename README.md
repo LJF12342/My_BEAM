@@ -1,7 +1,17 @@
-# BEAM: Budget-Efficient Agent Management
+<p align="center">
+  <img src="assets/beamlogo.png" alt="BEAM Logo" width="400">
+</p>
+
+<h1 align="center">BEAM</h1>
 
 <p align="center">
-  <b>Token-efficient multi-agent inference optimization toolkit</b>
+  <b>A Bayesian Energy-Aware Framework for Multi-Agent Communication Optimization under Incomplete Information</b>
+</p>
+
+<p align="center">
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.9+-blue.svg" alt="Python 3.9+"></a>
+  <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg" alt="PyTorch"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a>
 </p>
 
 <p align="center">
@@ -16,35 +26,49 @@
 
 ## Overview
 
-BEAM is a toolkit designed to **reduce token consumption** in multi-agent LLM systems while maintaining output quality. It addresses the challenge of high inference costs in multi-agent architectures by learning which agent connections and communications are essential.
+**BEAM** is a framework designed to **optimize communication efficiency** in multi-agent LLM systems while maintaining output quality under incomplete information. It addresses the challenge of high inference costs in multi-agent architectures by learning which agent connections and communications are essential using Bayesian optimization techniques.
 
 ### Key Features
 
-- **Three Optimization Strategies**: AgentPrune, AgentDropout, AgentBayesian
-- **Extensible Prompt Management**: Domain-specific prompt templates with registry
-- **Framework Integration**: Lightweight utilities for LangChain and LangGraph
-- **Flexible Agent Design**: Support custom execution functions or LLM-based agents
-- **Graph-based Architecture**: Spatial (same-round) and temporal (cross-round) connections
+| Feature | Description |
+|---------|-------------|
+| **Three Optimization Strategies** | AgentPrune, AgentDropout, AgentBayesian |
+| **Extensible Prompt Management** | Domain-specific prompt templates with registry |
+| **Framework Integration** | Lightweight utilities for popular frameworks |
+| **Flexible Agent Design** | Support custom functions or LLM-based agents |
+| **Graph-based Architecture** | Spatial and temporal agent connections |
+
+### Supported Frameworks
+
+<p align="center">
+  <img src="https://img.shields.io/badge/LangChain-Integration-blue?style=for-the-badge" alt="LangChain">
+  <img src="https://img.shields.io/badge/LangGraph-Integration-purple?style=for-the-badge" alt="LangGraph">
+  <img src="https://img.shields.io/badge/OpenAI-API-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI">
+  <img src="https://img.shields.io/badge/PyTorch-Framework-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+</p>
 
 ### How It Works
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    Multi-Agent System                           │
-│  ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌─────────┐      │
-│  │ Agent 1 │───▶│ Agent 2 │───▶│ Agent 3 │───▶│Decision │      │
-│  └─────────┘    └─────────┘    └─────────┘    └─────────┘      │
-│       │              │              │                           │
-│       └──────────────┴──────────────┘                           │
-│                      │                                          │
-│              BEAM Optimization                                  │
-│                      ▼                                          │
-│  ┌─────────┐              ┌─────────┐    ┌─────────┐           │
-│  │ Agent 1 │─────────────▶│ Agent 3 │───▶│Decision │           │
-│  └─────────┘              └─────────┘    └─────────┘           │
-│                                                                 │
-│  Result: Fewer tokens, maintained accuracy                      │
-└─────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                      Multi-Agent System                             │
+│                                                                     │
+│   ┌─────────┐    ┌─────────┐    ┌─────────┐    ┌──────────┐        │
+│   │ Agent 1 │───▶│ Agent 2 │───▶│ Agent 3 │───▶│ Decision │        │
+│   └─────────┘    └─────────┘    └─────────┘    └──────────┘        │
+│        │              │              │                              │
+│        └──────────────┴──────────────┘                              │
+│                       │                                             │
+│               BEAM Optimization                                     │
+│          (Bayesian Edge Learning)                                   │
+│                       ▼                                             │
+│   ┌─────────┐              ┌─────────┐    ┌──────────┐             │
+│   │ Agent 1 │─────────────▶│ Agent 3 │───▶│ Decision │             │
+│   └─────────┘              └─────────┘    └──────────┘             │
+│                                                                     │
+│   * Fewer tokens consumed    * Maintained accuracy                 │
+│   * Reduced latency          * Lower inference cost                │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -691,7 +715,7 @@ If you use BEAM in your research, please cite:
 
 ```bibtex
 @software{beam2024,
-  title={BEAM: Budget-Efficient Agent Management},
+  title={BEAM: A Bayesian Energy-Aware Framework for Multi-Agent Communication Optimization under Incomplete Information},
   author={BEAM Team},
   year={2024},
   url={https://github.com/erwinmsmith/BEAM}

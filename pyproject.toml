@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "beam-mas"
 version = "0.1.0"
-description = "BEAM: Budget-Efficient Agent Management - Token-efficient multi-agent inference optimization"
+description = "BEAM: A Bayesian Energy-Aware Framework for Multi-Agent Communication Optimization under Incomplete Information"
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.9"
