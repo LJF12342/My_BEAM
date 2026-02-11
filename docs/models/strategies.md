@@ -1,6 +1,7 @@
 # Strategies
 
 BEAM provides three specialized optimization strategies designed to balance performance and token efficiency. These strategies dynamically adjust the agent network by removing redundant paths, skipping unnecessary agents, or using probabilistic models to find the optimal configuration.
+
 ---
 
 ## AgentPrune
