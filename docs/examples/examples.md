@@ -1,9 +1,13 @@
 # Examples
 
+
 This example showcases a "Multi-Solver + Verifier" architecture. It demonstrates how to use AgentPrune to identify which solver paths are redundant for specific math tasks, thereby reducing token consumption without sacrificing accuracy.
+
 ---
 
+
 ## Complete Math Solving Example
+
 
 ```python
 import asyncio
