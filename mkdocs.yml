@@ -1,17 +1,22 @@
-# 项目基本信息
+# Site Information
 site_name: BEAM Documentation
+site_url: https://LJF12342.github.io/My_BEAM/
 site_description: Token-efficient multi-agent inference framework
 site_author: LJF12342
-site_url: https://LJF12342.github.io/My_BEAM/
+
+# Repository
+repo_name: LJF12342/My_BEAM
 repo_url: https://github.com/LJF12342/My_BEAM
 edit_uri: edit/main/docs/
 
-# 主题配置 (使用 THETA 同款 Material 主题)
+# Copyright
+copyright: Copyright &copy; 2026 LJF12342
+
+# Theme
 theme:
   name: material
-  language: zh  # 设置为中文界面
+  language: zh  # 修改为中文，解决搜索和界面的语言问题
   palette:
-    # 浅色模式
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
@@ -19,7 +24,6 @@ theme:
       toggle:
         icon: material/brightness-7
         name: 切换至深色模式
-    # 深色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: indigo
@@ -27,16 +31,64 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 切换至浅色模式
-  features:
-    - navigation.tabs      # 开启顶部大栏目导航
-    - navigation.sections  # 侧边栏分组显示
-    - navigation.expand    # 默认展开侧边栏
-    - navigation.top       # 回到顶部按钮
-    - search.suggest       # 搜索建议
-    - search.highlight     # 搜索高亮
-    - content.code.copy    # 代码块一键复制按钮
 
-# 导航栏配置 (严格对应你的文件夹结构)
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+  icon:
+    repo: fontawesome/brands/github
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+# Plugins
+plugins:
+  - search:
+      lang:
+        - en
+        - zh
+
+# Markdown Extensions (保持 THETA 的高级渲染特性)
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+# Navigation (根据你截图中的实际目录结构进行了精简和匹配)
 nav:
   - Home: index.md
   - Getting Started:
@@ -48,19 +100,8 @@ nav:
   - API Reference: api-reference/apireference.md
   - Examples: examples/examples.md
 
-# 扩展插件配置
-markdown_extensions:
-  - attr_list
-  - md_in_html
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - admonition  # 开启警告、提示框
-  - def_list
-  - tables      # 开启表格支持
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/LJF12342/My_BEAM
