@@ -42,7 +42,7 @@ If you use BEAM in your research, please cite:
 ```
 
 ---
-## 📖 导航说明
+## 📖 Navigation Instructions
 
 * If this is your first time using it, please check out  [quickstart](getting-started/quickstart.md)。
 * For a deeper understanding of the system design, please read [core architecture](getting-started/overview.md)。
@@ -50,7 +50,7 @@ If you use BEAM in your research, please cite:
 
 ---
 
-## 🔗 相关链接
+## 🔗 Links
 
 * [:material-github: GitHub 仓库](https://github.com/LJF12342/My_BEAM)
 * [:material-bug: 问题反馈](https://github.com/LJF12342/My_BEAM/issues)
