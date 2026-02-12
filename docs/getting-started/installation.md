@@ -102,4 +102,3 @@ python -c "from beam import BEAMConfig, AgentConfig, OptimizationConfig; print('
 ## Next Steps
 
 - [Quick Start Tutorial](quickstart.md) - Train your first model in 5 minutes
-- [Data Preparation Guide](../user-guide/data-preparation.md) - Learn about data formats

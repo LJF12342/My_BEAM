@@ -237,6 +237,5 @@ Open the visualization files in your browser or image viewer:
 
 ## What's Next?
 
-- [User Guide](../user-guide/data-preparation.md) - Complete workflow documentation
-- [Advanced Usage](../advanced/custom-datasets.md) - Advanced features
-- [Examples](../examples/english-dataset.md) - Real-world use cases
+- Three implementation strategies for BEAM **[strategies](../models/strategies.md)** 
+- [Examples](../examples/examples.md) - Real-world use cases

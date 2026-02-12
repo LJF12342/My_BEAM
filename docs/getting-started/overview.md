@@ -118,9 +118,4 @@ The BEAM framework follows a structured process to transform high-level objectiv
 
 Now that you understand the architecture, you can:
 
-- Explore the **[User Guide](../user-guide/data-preparation.md)** for detailed documentation on each component
-- Try different **training modes** (supervised, unsupervised)
-- Experiment with **different model sizes** (4B, 8B)
-- Learn about **[hyperparameter tuning](../advanced/hyperparameters.md)** in the Advanced Usage section
-- Compare THETA with **[baseline models](../models/baselines.md)** (LDA, ETM, CTM)
-- Process **[Chinese text data](../advanced/chinese-data.md)** with specialized pipelines
+- Three implementation strategies for BEAM **[strategies](../models/strategies.md)** 

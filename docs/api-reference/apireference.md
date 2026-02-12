@@ -1,7 +1,9 @@
 # API Reference
 
 The BEAM API Reference provides a detailed technical overview of the framework's components. It is organized into three key areas: Core Classes for building and managing agent graphs, LLM Classes for model interfacing and registration, and Integrations for bridging BEAM with external ecosystems like LangChain and LangGraph.
+
 ---
+
 
 ## Core Classes
 
@@ -17,6 +19,14 @@ class BEAMConfig:
     decision_method: str = "reference"  # "reference", "majority", "direct"
     domain: str = ""                    # Task domain
 ```
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `agents`| `List[AgentConfig]` | *Required* | Definitions of roles and counts for agents. |
+| `num_rounds` | `int` | `1` | Number of reasoning/interaction iterations. |
+| `optimization` | `OptimizationConfig` | *Required* | Settings for pruning or efficiency strategies. |
+| `decision_method` | `str` | `"reference"` | Strategy: `"reference"`, `"majority"`, or `"direct"`. |
+| `domain` | `str` | `""` | The specific task area (e.g., "math", "medical"). |
+
 **AgentNode:**
 
 Base class for all agents in the graph.
@@ -37,10 +47,19 @@ node = AgentNode(
 result = node.execute({"task": "..."})
 result = await node.async_execute({"task": "..."})
 ```
+| Attribute | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | `str` | `None` | Unique identifier. Auto-generated if not provided. |
+| `agent_name` | `str` | *Required* | Type name of the agent (e.g., "Solver"). |
+| `role` | `str` | *Required* | Brief description of the agent's role/responsibility. |
+| `domain` | `str` | `""` | The task domain this node belongs to. |
+| `llm` | `LLM` | `None` | The LLM instance used for text generation. |
+| `execute_fn` | `Callable` | `None` | Optional custom Python function for non-LLM tasks. |
+| `system_prompt` | `str` | `""` | The system-level instruction for the LLM. |
+| `user_prompt_template` | `str` | `""` | Template for user input with `{variable}` placeholders. |
 **AgentGraph:**
 
 Manages agent connections and execution flow.
-
 
 ```python
 graph = AgentGraph(config)
@@ -50,6 +69,12 @@ graph.add_nodes([node1, node2, node3])
 # Run inference
 results = await graph.run({"task": "..."}, num_rounds=2)
 ```
+| Method | Arguments | Returns | Description |
+| :--- | :--- | :--- | :--- |
+| **`add_node(node)`** | `node: AgentNode` | `None` | Adds a single agent node to the graph. |
+| **`add_nodes(nodes)`** | `nodes: List[Node]` | `None` | Batch adds multiple agent nodes. |
+| **`run(inputs, rounds)`** | `dict, int` | `List[Res]` | Asynchronously executes the reasoning flow. |
+
 **PromptSet:**
 
 Collection of prompts for a domain.
@@ -63,6 +88,14 @@ prompts.get_prompt(role, **variables)
 prompts.save("prompts.json")
 prompts.load("prompts.json")
 ```
+| Method | Arguments | Description |
+| :--- | :--- | :--- |
+| **`add_role(role, system, user)`** | `str, str, str` | Adds a new role with specific system and user templates. |
+| **`set_decision_template(sys, usr)`** | `str, str` | Sets global templates for agent decision-making. |
+| **`get_prompt(role, **vars)`** | `str, kwargs` | Renders a prompt by injecting variables into the template. |
+| **`save(file_path)`** | `str` | Serializes the prompt set to a JSON file. |
+| **`load(file_path)`** | `str` | Loads a prompt set configuration from a JSON file. |
+
 **PromptRegistry:**
 
 Global registry for prompt sets.
@@ -72,6 +105,13 @@ PromptRegistry.get(name)
 PromptRegistry.keys()
 PromptRegistry.load_from_file(name, path)
 ```
+| Method | Arguments | Returns | Description |
+| :--- | :--- | :--- | :--- |
+| **`register(name, prompt_set)`** | `str, PromptSet` | `None` | Registers a `PromptSet` under a specific global name. |
+| **`get(name)`** | `str` | `PromptSet` | Retrieves a registered `PromptSet` by its name. |
+| **`keys()`** | `None` | `List[str]` | Returns a list of all registered `PromptSet` names. |
+| **`load_from_file(name, path)`** | `str, str` | `None` | Loads a `PromptSet` from a JSON file and registers it. |
+
 ---
 
 ## LLM Classes
@@ -86,6 +126,11 @@ class BaseLLM(ABC):
     @abstractmethod
     async def agen(self, messages: List[Dict]) -> str: ...
 ```
+| Method | Arguments | Returns | Description |
+| :--- | :--- | :--- | :--- |
+| **`gen(messages)`** | `List[Dict]` | `str` | **Synchronous** generation. Takes a list of message dictionaries (role/content). |
+| **`agen(messages)`** | `List[Dict]` | `str` | **Asynchronous** generation. Recommended for high-concurrency multi-agent tasks. |
+
 **LLMRegistry:**
 
 Registry for LLM implementations.
@@ -99,6 +144,11 @@ llm = LLMRegistry.get("deepseek-chat")
 class CustomLLM(BaseLLM):
     ...
 ```
+| Method | Arguments | Returns | Description |
+| :--- | :--- | :--- | :--- |
+| **`get(name)`** | `str` | `BaseLLM` | Retrieves an initialized LLM instance by its registered name. |
+| **`register(name)`** | `str` | `Decorator` | A decorator to register a custom class (must inherit from `BaseLLM`). |
+
 ---
 
 ## Integration
@@ -127,6 +177,12 @@ callback = LangChainCallbackHandler()
 from langchain_core.runnables import RunnableSequence
 wrapped = wrap_langchain_runnable(your_chain, beam_config)
 ```
+| Component | Type | Description |
+| :--- | :--- | :--- |
+| **`LangChainLLMWrapper`** | `Class` | Wraps a LangChain LLM instance to make it compatible with BEAM's `BaseLLM`. |
+| **`LangChainCallbackHandler`** | `Class` | A standard callback handler to track token usage and events within LangChain. |
+| **`wrap_langchain_runnable`** | `Function` | Converts an existing LangChain `Runnable` or `Chain` into a BEAM-compatible node. |
+
 **LangGraph:**
 
 Registry for LLM implementations.
@@ -158,4 +214,11 @@ graph = StateGraph(MyState)
 graph.add_node("solver", solver_node)
 graph.add_conditional_edges("start", skip_condition, {...})
 ```
+| Component | Type | Description |
+| :--- | :--- | :--- |
+| **`BEAMState`** | `Class` | A specialized state class that tracks BEAM-specific metadata (masks, weights) within LangGraph. |
+| **`create_beam_node`** | `Decorator` | Transforms a standard function into a BEAM-aware node that respects pruning and optimization. |
+| **`create_skip_condition`** | `Function` | Creates routing logic for LangGraph edges based on BEAM's pruning results (skipping inactive nodes). |
+| **`apply_beam_masks`** | `Function` | Utility to filter or weight LangGraph nodes based on the current BEAM optimization state. |
+
 ---
