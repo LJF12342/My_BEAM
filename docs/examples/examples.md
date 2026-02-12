@@ -90,9 +90,13 @@ if __name__ == "__main__":
     asyncio.run(main())
     
 ```
+
+**Key Features:**
+
 | Method | Arguments | Returns | Description |
 | :--- | :--- | :--- | :--- |
 | **`set_graph(graph)`** | `AgentGraph` | `None` | Binds an `AgentGraph` to the optimizer for pruning. |
 | **`train(data, eval_fn, epochs)`** | `List[dict], Callable, int` | `dict` | Trains the pruning masks using training data and an evaluation function. |
 | **`run(inputs)`** | `dict` | `(str, dict)` | Executes optimized inference, returning the result and metadata (e.g., tokens saved). |
+
 ---
