@@ -52,5 +52,5 @@ If you use BEAM in your research, please cite:
 
 ## 🔗 Links
 
-* [:material-github: GitHub 仓库](https://github.com/LJF12342/My_BEAM)
-* [:material-bug: 问题反馈](https://github.com/LJF12342/My_BEAM/issues)
+* [:material-github: GitHub](https://github.com/LJF12342/My_BEAM)
+* [:material-bug: Problem feedback](https://github.com/LJF12342/My_BEAM/issues)
