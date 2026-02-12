@@ -19,6 +19,8 @@ class BEAMConfig:
     domain: str = ""                    # Task domain
 ```
 
+**Definitions:**
+
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `agents`| `List[AgentConfig]` | *Required* | Definitions of roles and counts for agents. |
@@ -48,6 +50,8 @@ result = node.execute({"task": "..."})
 result = await node.async_execute({"task": "..."})
 ```
 
+**Definitions:**
+
 | Attribute | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `id` | `str` | `None` | Unique identifier. Auto-generated if not provided. |
@@ -72,6 +76,8 @@ graph.add_nodes([node1, node2, node3])
 results = await graph.run({"task": "..."}, num_rounds=2)
 ```
 
+**Definitions:**
+
 | Method | Arguments | Returns | Description |
 | :--- | :--- | :--- | :--- |
 | **`add_node(node)`** | `node: AgentNode` | `None` | Adds a single agent node to the graph. |
@@ -92,6 +98,8 @@ prompts.save("prompts.json")
 prompts.load("prompts.json")
 ```
 
+**Definitions:**
+
 | Method | Arguments | Description |
 | :--- | :--- | :--- |
 | **`add_role(role, system, user)`** | `str, str, str` | Adds a new role with specific system and user templates. |
@@ -110,6 +118,8 @@ PromptRegistry.get(name)
 PromptRegistry.keys()
 PromptRegistry.load_from_file(name, path)
 ```
+
+**Definitions:**
 
 | Method | Arguments | Returns | Description |
 | :--- | :--- | :--- | :--- |
@@ -133,6 +143,8 @@ class BaseLLM(ABC):
     async def agen(self, messages: List[Dict]) -> str: ...
 ```
 
+**Definitions:**
+
 | Method | Arguments | Returns | Description |
 | :--- | :--- | :--- | :--- |
 | **`gen(messages)`** | `List[Dict]` | `str` | **Synchronous** generation. Takes a list of message dictionaries (role/content). |
@@ -151,6 +163,8 @@ llm = LLMRegistry.get("deepseek-chat")
 class CustomLLM(BaseLLM):
     ...
 ```
+
+**Definitions:**
 
 | Method | Arguments | Returns | Description |
 | :--- | :--- | :--- | :--- |
@@ -185,6 +199,8 @@ callback = LangChainCallbackHandler()
 from langchain_core.runnables import RunnableSequence
 wrapped = wrap_langchain_runnable(your_chain, beam_config)
 ```
+
+**Definitions:**
 
 | Component | Type | Description |
 | :--- | :--- | :--- |
@@ -223,6 +239,8 @@ graph = StateGraph(MyState)
 graph.add_node("solver", solver_node)
 graph.add_conditional_edges("start", skip_condition, {...})
 ```
+
+**Definitions:**
 
 | Component | Type | Description |
 | :--- | :--- | :--- |

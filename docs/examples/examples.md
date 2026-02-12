@@ -91,7 +91,7 @@ if __name__ == "__main__":
     
 ```
 
-**Key Features:**
+**Definitions:**
 
 | Method | Arguments | Returns | Description |
 | :--- | :--- | :--- | :--- |
