@@ -69,3 +69,9 @@ markdown_extensions:
   - admonition  # 开启警告、提示框
   - def_list
   - tables      # 开启表格支持
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.caret  # 建议添加，支持下划线等格式
+  - pymdownx.mark   # 建议添加，支持高亮文本
+  - pymdownx.tilde  # 建议添加，支持删除线
