@@ -50,8 +50,8 @@ nav:
       - LangGraph: models/LangGraph.md
   - API Reference: api-reference/apireference.md
   - Examples: 
-      - Basic Examples: models/basic-examples.md
-      - Prompts Examples: models/prompts-examples.md
+      - Basic Examples: examples/basic-examples.md
+      - Prompts Examples: examples/prompts-examples.md
 
 # 扩展插件配置
 markdown_extensions:
