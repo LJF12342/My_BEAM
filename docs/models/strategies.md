@@ -9,7 +9,9 @@ BEAM provides three specialized optimization strategies designed to balance perf
 Learns edge importance through policy gradient optimization and prunes low-importance connections.
 
 **Training:**
+
 ```python
+
 from beam import AgentPrune, OptimizationConfig
 
 config = BEAMConfig(
@@ -24,21 +26,28 @@ config = BEAMConfig(
 )
 
 strategy = AgentPrune(config)
+
 ```
+
 **Best for:**
+
 - Dense agent networks where many connections are redundant.
 
 **How it works:**
+
 - Initializes learnable logits for each potential edge
 - Uses Gumbel-Softmax for differentiable edge sampling
 - Optimizes via policy gradient based on task performance
 - Prunes edges below learned threshold
+
 ---
 
 ## AgentDropout
 
 Learns which agents can be skipped entirely during inference.
+
 ```python
+
 from beam import AgentDropout, OptimizationConfig
 
 config = BEAMConfig(
@@ -52,14 +61,18 @@ config = BEAMConfig(
 
 strategy = AgentDropout(config)
 ```
+
 **Best for:**
+
 - Systems with redundant agents where some can be skipped without quality loss.
 
 **How it works::**
+
 - Learns skip probability for each agent
 - During training, samples skip decisions
 - Agents with high skip probability are dropped during inference
 - Maintains ensemble diversity while reducing computation
+
 ---
 
 ## AgentBayesian
@@ -85,9 +98,11 @@ strategy = AgentBayesian(config)
 ```
 
 **Best for:**
+
 - When you need confidence estimates or have limited training data.
 
 **How it works:**
+
 - Maintains posterior distribution over edge weights
 - Uses MCMC (optional) to sample from posterior
 - Provides uncertainty estimates for pruning decisions
