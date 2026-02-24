@@ -8,7 +8,7 @@
 
 <div class="grid cards" markdown>
 
--   :material-rocket-launch:{ .lg .middle } **Getting Started**
+- :material-rocket-launch:{ .lg .middle } **Getting Started**
 
     ---
 
@@ -16,15 +16,15 @@
 
     [:octicons-arrow-right-24: Quick Start](getting-started/quickstart.md)
 
--   :material-book-open-variant:{ .lg .middle } **Models**
+- :material-book-open-variant:{ .lg .middle } **Models**
 
     ---
 
     Understand the workflow and structure
-    
+
     [:octicons-arrow-right-24: User Guide](models/strategies.md)
 
--   :material-brain:{ .lg .middle } **Configuration**
+- :material-brain:{ .lg .middle } **Configuration**
 
     ---
 
@@ -32,7 +32,7 @@
 
     [:octicons-arrow-right-24: Models](getting-started/config.md)
 
--   :material-api:{ .lg .middle } **Examples**
+- :material-api:{ .lg .middle } **Examples**
 
     ---
 
