@@ -32,7 +32,7 @@
 
     [:octicons-arrow-right-24: Models](getting-started/config.md)
 
-- :material-example:{ .lg .middle } **Examples**
+- :material-lightbulb-outline:{ .lg .middle } **Examples**
 
     ---
 
