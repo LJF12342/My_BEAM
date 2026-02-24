@@ -21,6 +21,7 @@
     ---
 
     Understand the workflow and structure
+    
     [:octicons-arrow-right-24: User Guide](models/strategies.md)
 
 -   :material-brain:{ .lg .middle } **Configuration**
