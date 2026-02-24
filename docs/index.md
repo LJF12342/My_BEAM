@@ -32,7 +32,7 @@
 
     [:octicons-arrow-right-24: Models](getting-started/config.md)
 
-- :material-api:{ .lg .middle } **Examples**
+- :material-example:{ .lg .middle } **Examples**
 
     ---
 
@@ -49,6 +49,7 @@
 If you use BEAM in your research, please cite:
 
 ```bibtex
+
 @software{beam2024,
   title={BEAM: A Bayesian Energy-Aware Framework for Multi-Agent Communication Optimization under Incomplete Information},
   author={BEAM Team},
