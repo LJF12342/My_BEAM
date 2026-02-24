@@ -8,21 +8,36 @@
 
 <div class="grid cards" markdown>
 
--   :material-lightning-bolt:{ .lg .middle } **Extreme Efficiency**
-    ---
-    By employing an intelligent skip agent scheduling algorithm, the inference overhead in multi-turn dialogues is significantly reduced.
+-   :material-rocket-launch:{ .lg .middle } **Getting Started**
 
--   :material-source-branch:{ .lg .middle } **Multi-Strategy Driven**
     ---
-    It has multiple built-in search and reasoning strategies, supporting everything from simple parallel chains to complex tree-structured search layouts.
 
--   :material-engine:{ .lg .middle } **Plug-In Architecture**
-    ---
-    Easily integrates with various mainstream LLM APIs (Qwen, GPT, DeepSeek) and supports custom agent logic.
+    Install BEAM and train your first topic model in minutes
 
--   :material-chart-bar:{ .lg .middle } **Deep Visualization**
+    [:octicons-arrow-right-24: Quick Start](getting-started/quickstart.md)
+
+-   :material-book-open-variant:{ .lg .middle } **Models**
+
     ---
-    It provides a complete visualization tool for reasoning paths, making the decision-making process of multi-agent systems clear and transparent.
+
+    Understand the workflow and structure
+    [:octicons-arrow-right-24: User Guide](models/strategies.md)
+
+-   :material-brain:{ .lg .middle } **Configuration**
+
+    ---
+
+    Basic configuration settings
+
+    [:octicons-arrow-right-24: Models](getting-started/config.md)
+
+-   :material-api:{ .lg .middle } **Examples**
+
+    ---
+
+    Model usage examples
+
+    [:octicons-arrow-right-24: API Reference](examples/basic-examples.md)
 
 </div>
 
@@ -42,15 +57,16 @@ If you use BEAM in your research, please cite:
 ```
 
 ---
+
 ## 📖 Navigation Instructions
 
-* If this is your first time using it, please check out  [quickstart](getting-started/quickstart.md)。
-* For a deeper understanding of the system design, please read [core architecture](getting-started/overview.md)。
-* For function details, please refer to the [API Reference](api-reference/apireference.md)。
+- If this is your first time using it, please check out  [quickstart](getting-started/quickstart.md)。
+- For a deeper understanding of the system design, please read [core architecture](getting-started/overview.md)。
+- For function details, please refer to the [API Reference](api-reference/apireference.md)。
 
 ---
 
 ## 🔗 Links
 
-* [:material-github: GitHub](https://github.com/LJF12342/My_BEAM)
-* [:material-bug: Problem feedback](https://github.com/LJF12342/My_BEAM/issues)
+- [:material-github: GitHub](https://github.com/erwinmsmith/BEAM)
+- [:material-bug: Problem feedback](https://github.com/erwinmsmith/BEAM/issues)
