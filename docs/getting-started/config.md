@@ -19,7 +19,7 @@ agents:
     count: 2
 
 connection_mode: "star"
-decision_method: "refer"
+decision_method: "DecisionMethod.REFER"
 
 llm:
   model_name: "gpt-4o"

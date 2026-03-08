@@ -3,14 +3,8 @@ site_name: BEAM Documentation
 site_description: Token-efficient multi-agent inference framework
 site_author: erwinmsmith
 site_url: https://erwinmsmith.github.io/My_BEAM/
-
-# 仓库信息
-repo_name: erwinmsmith/My_BEAM
 repo_url: https://github.com/erwinmsmith/My_BEAM
 edit_uri: edit/main/docs/
-
-# 版权信息
-copyright: Copyright &copy; 2024-2026 erwinmsmith
 
 # 主题配置 
 theme:
@@ -33,64 +27,14 @@ theme:
       toggle:
         icon: material/brightness-4
         name: 切换至浅色模式
-
   features:
-    - navigation.instant
-    - navigation.tracking
-    - navigation.tabs           # 开启顶部大栏目导航
-    - navigation.tabs.sticky
-    - navigation.sections       # 侧边栏分组显示
-    - navigation.expand         # 默认展开侧边栏
-    - navigation.top            # 回到顶部按钮
-    - search.suggest            # 搜索建议
-    - search.highlight          # 搜索高亮
-    - content.code.copy         # 代码块一键复制按钮
-    - content.code.annotate     # 代码注释功能
-    - content.action.edit       # 显示编辑按钮
-
-  icon:
-    repo: fontawesome/brands/github
-
-  font:
-    text: Roboto
-    code: Roboto Mono
-
-# 插件配置
-plugins:
-  - search:
-      lang:
-        - en
-        - zh  # 开启中英文双语搜索索引
-
-# Markdown 扩展插件
-markdown_extensions:
-  - admonition        # 警告、提示框
-  - pymdownx.details  # 折叠块
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - attr_list         # 支持 CSS 属性注入 (Grid Cards 必备)
-  - md_in_html        # 支持在 HTML 中解析 Markdown (Grid Cards 必备)
-  - tables
-  - footnotes
-  - toc:
-      permalink: true
-      toc_depth: 3
+    - navigation.tabs      # 开启顶部大栏目导航
+    - navigation.sections  # 侧边栏分组显示
+    - navigation.expand    # 默认展开侧边栏
+    - navigation.top       # 回到顶部按钮
+    - search.suggest       # 搜索建议
+    - search.highlight     # 搜索高亮
+    - content.code.copy    # 代码块一键复制按钮
 
 # 导航栏配置 
 nav:
@@ -100,17 +44,38 @@ nav:
       - Installation: getting-started/installation.md
       - Quick Start: getting-started/quickstart.md
       - Configuration: getting-started/config.md
-  - Models & Strategies:
-      - Reasoning Strategies: models/strategies.md
-      - LangChain Integration: models/LangChain.md
-      - LangGraph Integration: models/LangGraph.md
+  - Models:
+      - Strategies: models/strategies.md
+      - LangChain: models/LangChain.md
+      - LangGraph: models/LangGraph.md
   - API Reference: api-reference/apireference.md
   - Examples: 
       - Basic Examples: examples/basic-examples.md
       - Prompts Examples: examples/prompts-examples.md
+  - Advanced: advanced.md
+  - Common Problems: faq.md
+  - Change Log: changelog.md
+  
 
-# 社交链接
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/LJF12342/My_BEAM
+# 扩展插件配置
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition  # 开启警告、提示框
+  - def_list
+  - tables      # 开启表格支持
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.caret  # 建议添加，支持下划线等格式
+  - pymdownx.mark   # 建议添加，支持高亮文本
+  - pymdownx.tilde  # 建议添加，支持删除线
