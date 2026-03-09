@@ -2,7 +2,7 @@
 
 ---
 
-## 1 How to fix `asyncio` conflicts in Jupyter Notebook?
+## 1. How to fix `asyncio` conflicts in Jupyter Notebook?
 
 **Issue**: Running `loop.run_until_complete` in Notebooks causes `RuntimeError: This event loop is already running`.
 **Cause**: Jupyter already has a running event loop. Standard `asyncio` does not support nested loops by default.
@@ -16,7 +16,7 @@ nest_asyncio.apply()
 # Now you can run BEAM asynchronous methods (like agen) normally
 ```
 
-**2 How to configure API Keys? (Env Vars vs. Code)**
+## 2. How to configure API Keys? (Env Vars vs. Code)
 **Option A: Hardcoded in code (Best for quick experiments)**
 
 Pass the api\_key directly into LLMRegistry.get():
@@ -35,7 +35,7 @@ Set them in your system terminal or .env file. BEAM automatically scans for thes
 * **DeepSeek**: export DEEPSEEK\_API\_KEY='sk-...'
 
 ---
-**3 How to handle CUDA Out of Memory (OOM) during training?**
+## 3. How to handle CUDA Out of Memory (OOM) during training?
 
 **Solutions**:
 
@@ -46,7 +46,7 @@ Set them in your system terminal or .env file. BEAM automatically scans for thes
 
 ---
 
-**4 What if performance drops too much after Pruning?**
+## 4. What if performance drops too much after Pruning?
 
 **Solutions**:
 
