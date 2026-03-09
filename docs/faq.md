@@ -16,7 +16,7 @@ nest_asyncio.apply()
 # Now you can run BEAM asynchronous methods (like agen) normally
 ```
 
-## 2. How to configure API Keys? (Env Vars vs. Code)
+## 2. How to configure API Keys? 
 **Option A: Hardcoded in code (Best for quick experiments)**
 
 Pass the api\_key directly into LLMRegistry.get():
